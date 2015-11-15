@@ -1,9 +1,13 @@
 package com.example.seonghoon.yeodam;
 
 import android.app.ActivityGroup;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -38,6 +42,7 @@ public class TabHost_ThemeTab extends ActivityGroup {
     //Back key가 눌러졌을 경우에 대한 처리
     public void back(){
         if(history.size()>0) {
+            Toast.makeText(getApplicationContext(),"back",Toast.LENGTH_LONG).show();
             history.remove(history.size() - 1);
 
             if (history.size() == 0) {
@@ -57,4 +62,7 @@ public class TabHost_ThemeTab extends ActivityGroup {
         ThemeTabGroup.back();
         return ;
     }
+
+
+
 }

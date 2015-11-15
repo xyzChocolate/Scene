@@ -1,8 +1,11 @@
 package com.example.seonghoon.yeodam;
 
+import android.app.AlertDialog;
 import android.app.TabActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.TabHost;
@@ -103,7 +106,27 @@ public class MainActivity extends TabActivity {
 
 
     }
-
-
+    //H/W 뒤로가기버튼 Handler
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch(keyCode){
+            case KeyEvent.KEYCODE_BACK:
+                new AlertDialog.Builder(this)
+                        .setTitle("종료")
+                        .setMessage("정말로 종료하시겠습니까?")
+                        .setPositiveButton("예", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("아니오", null).show();
+                return false;
+            case KeyEvent.KEYCODE_HOME:
+                return true;
+            default:
+                return false;
+        }
+    }
 
 }
