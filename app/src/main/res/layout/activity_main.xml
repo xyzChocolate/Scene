@@ -1,0 +1,158 @@
+<TabHost
+    android:id="@android:id/tabhost"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <!--탭 버튼 (탭아래로)-->
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            />
+        <!-- 탭아래로 내릴땐 RelativeLayout에
+         다음내용 추가 android:layout_alignParentBottom="true"-->
+            <!-- 탭 내용 -->
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 첫번째 탭버튼에 대한 레이아웃-->
+
+            <LinearLayout
+                android:id="@+id/view01"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ff0000ff">
+
+
+                <TextView
+                    android:id="@+id/text01"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text ="@string/hello_world"/>
+
+            </LinearLayout>
+
+
+            <!-- 두번째 탭버튼에 대한 레이아웃 -->
+            <LinearLayout
+                android:id="@+id/view02"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ff00ff00">
+
+                <ImageView
+                    android:id="@+id/imageView01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/hey"/>
+
+
+            </LinearLayout>
+            <!-- 세번째 탭버튼에 대한 레이아웃 -->
+            <LinearLayout
+                android:id="@+id/view03"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffff0000">
+
+                <!--검색창, 찾기버튼-->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white">
+
+                    <EditText
+                        android:id="@+id/EditText01"
+                        android:layout_width="300dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="2dp"
+                        android:hint="@string/find"/>
+                    <Button
+                        android:id="@+id/findBtn"
+                        android:text="@string/findBtn"
+                        android:layout_width="60dp"
+                        android:layout_height="40dp"
+                        />
+
+                </LinearLayout>
+                <!-- GridLayout . 테마 view-->
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <GridView
+                        android:id="@+id/GridView01"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:numColumns="2"
+                        android:verticalSpacing="20dp"
+                        android:horizontalSpacing="10dp"
+                        android:columnWidth="120dp"
+                        android:stretchMode="columnWidth"
+                        android:gravity="center|center_vertical"
+                        android:clickable="true"
+                        >
+
+
+                    </GridView>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+            <!-- 네번째 탭버튼에 대한 레이아웃 -->
+            <LinearLayout
+                android:id="@+id/view04"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ff00ffff">
+
+
+                <TextView
+                    android:id="@+id/text02"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text ="@string/hello_world"/>
+
+            </LinearLayout>
+            <!-- 다섯번째 탭버튼에 대한 레이아웃 -->
+            <LinearLayout
+                android:id="@+id/view05"
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#000000">
+
+
+                <ImageView
+                    android:id="@+id/info"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/ss"/>
+
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+</TabHost>

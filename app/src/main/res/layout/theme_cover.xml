@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Theme_cover-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <!--검색창, 찾기버튼-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <EditText
+            android:id="@+id/EditText01"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="2dp"
+            android:hint="@string/find"/>
+        <Button
+            android:id="@+id/findBtn"
+            android:text="@string/findBtn"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            />
+
+    </LinearLayout>
+
+
+    <GridView
+        android:id="@+id/photogrid"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:columnWidth="155dp"
+        android:gravity="center_horizontal|center"
+        android:horizontalSpacing="1dp"
+        android:numColumns="2"
+        android:stretchMode="spacingWidth"
+        android:verticalSpacing="5dp"/>
+
+
+</LinearLayout>

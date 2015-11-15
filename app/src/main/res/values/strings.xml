@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">YeoDam</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="find">검색할 내용 입력하쇼</string>
+    <string name="findBtn">찾기</string>
+    <string name="tab1">탭1</string>
+    <string name="first">맨앞으로</string>
+    <string name="last">맨뒤로</string>
+    <string name="quest">할 일</string>
+    <string name="back_button">뒤로가기</string>
+    <string name="more">자세히보기</string>
+    <string name="addPlan">일정담기</string>
+</resources>
