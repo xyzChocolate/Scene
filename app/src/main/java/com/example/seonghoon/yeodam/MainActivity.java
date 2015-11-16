@@ -39,37 +39,42 @@ public class MainActivity extends TabActivity {
         // spec.setIndicator(new TabView(this,R.drawable.photo,R.string.tab1)).setContent(R.id.view01);
 
         //** 첫번째 탭
-        Intent intent = new Intent();
+        Intent intent1 = new Intent();
         //호출하는 클래스 this, 호출되는 클래스 ThemeTab_Cover
-        intent.setClass(this, TabHost_ThemeTab.class);
+        intent1.setClass(this, TabHost_Theme.class);
         //제목
         spec.setIndicator("여행테마탐험");
-        spec.setContent(intent);
-        mTab.addTab(spec);
-
-        //** 두번째 탭
-        spec = mTab.newTabSpec("tag");
-        spec.setIndicator("일정관리");
-        spec.setContent(R.id.view02);
-        mTab.addTab(spec);
-
-        //** 세번째 탭
-        spec = mTab.newTabSpec("tag");
-        Intent intent1 = new Intent();
-        intent1.setClass(this,FragmentPageSupport.class);
-        spec.setIndicator("주변여행지");
         spec.setContent(intent1);
         mTab.addTab(spec);
 
-        //** 네번째 탭
+        //** 두번째 탭->ScheduleMgmt
+        Intent intent2 = new Intent();
+        intent2.setClass(this,TabHost_ScheduleMgmt.class);
         spec = mTab.newTabSpec("tag");
-        spec.setIndicator("마이페이지");
-        spec.setContent(R.id.view01);
+        spec.setIndicator("일정관리");
+        spec.setContent(intent2);
         mTab.addTab(spec);
-        //** 다섯번째탭
+
+        //** 세번째 탭->Surroundings
+        spec = mTab.newTabSpec("tag");
+        Intent intent3 = new Intent();
+        intent3.setClass(this, TabHost_Surroundings.class);
+        spec.setIndicator("주변여행지");
+        spec.setContent(intent3);
+        mTab.addTab(spec);
+
+        //** 네번째 탭->MyPage
+        spec = mTab.newTabSpec("tag");
+        Intent intent4 = new Intent().setClass(this,TabHost_MyPage.class);
+        spec.setIndicator("마이페이지");
+        spec.setContent(intent4);
+        mTab.addTab(spec);
+
+        //** 다섯번째탭->AppInfo
+        Intent intent5 = new Intent().setClass(this,TabHost_AppInfo.class);
         spec = mTab.newTabSpec("tag");
         spec.setIndicator("앱정보");
-        spec.setContent(R.id.view05);
+        spec.setContent(intent5);
         mTab.addTab(spec);
 
 
@@ -93,13 +98,13 @@ public class MainActivity extends TabActivity {
                         android.R.layout.simple_gallery_item);
 
         //GridView
-        GridView gridView = (GridView)findViewById(R.id.GridView01);
-        gridView.setAdapter(adapter);
+        //GridView gridView = (GridView)findViewById(R.id.GridView01);
+        //gridView.setAdapter(adapter);
 
 
         for (int tab = 0; tab < mTab.getTabWidget().getChildCount(); ++tab) {
 
-            mTab.getTabWidget().getChildAt(tab).getLayoutParams().height = 120;
+            mTab.getTabWidget().getChildAt(tab).getLayoutParams().height = 150;
 
         }
 

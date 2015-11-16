@@ -15,7 +15,7 @@ import android.widget.Toast;
 /**
  * Created by Seonghoon on 2015-11-13.
  */
-public class ThemeTab_Content_One extends Fragment implements View.OnClickListener{
+public class ThemeTab_ContentFragment extends Fragment implements View.OnClickListener{
 
     TextView txtView;
     ImageView imageView;
@@ -25,7 +25,7 @@ public class ThemeTab_Content_One extends Fragment implements View.OnClickListen
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.theme_content_fragment, container, false);
+        View view = inflater.inflate(R.layout.tab_theme_content_fragment, container, false);
 
         Drawable drawable = getResources().getDrawable(R.drawable.p1);
 

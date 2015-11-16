@@ -46,7 +46,7 @@ public class ThemeTab_Content extends FragmentActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.theme_content);
+        setContentView(R.layout.tab_theme_content);
         initLayout();
 
         //선택된 테마의 인덱스 값 받아오기
@@ -66,7 +66,7 @@ public class ThemeTab_Content extends FragmentActivity implements View.OnClickLi
         switch(v.getId()){
         //뒤로가기눌렀을떄
             case R.id.back_button:
-                TabHost_ThemeTab parent = (TabHost_ThemeTab)getParent();
+                TabHost_Theme parent = (TabHost_Theme)getParent();
                 parent.onBackPressed();
                 break;
 
@@ -159,7 +159,7 @@ public class ThemeTab_Content extends FragmentActivity implements View.OnClickLi
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View v = inflater.inflate(R.layout.theme_content_fragment,container,false);
+            View v = inflater.inflate(R.layout.tab_theme_content_fragment,container,false);
             View tv = v.findViewById(R.id.text_fragment);
             setTxt((TextView)tv);
 

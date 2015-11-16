@@ -39,7 +39,7 @@ public class ThemeTab_Covers extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.theme_cover);
+        setContentView(R.layout.tab_theme_cover);
 
 
         GridView gridView = (GridView)findViewById(R.id.photogrid);
@@ -70,63 +70,63 @@ public class ThemeTab_Covers extends Activity{
                     //Toast.makeText(ThemeTab_Covers.this,"가을동화클릭클릭",Toast.LENGTH_SHORT).show();
                     intent = new Intent(ThemeTab_Covers.this,ThemeTab_Content.class);
                     intent.putExtra("position",0);
-                    view = TabHost_ThemeTab.ThemeTabGroup.getLocalActivityManager()
+                    view = TabHost_Theme.ThemeTabGroup.getLocalActivityManager()
                             .startActivity("Theme_Content",intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                             .getDecorView();
 
-                    TabHost_ThemeTab.ThemeTabGroup.replaceView(view);
+                    TabHost_Theme.ThemeTabGroup.replaceView(view);
 
                     break;
                 case 1:
                     //Toast.makeText(ThemeTab_Covers.this,"어린가을동화클릭",Toast.LENGTH_SHORT).show();
                     intent = new Intent(ThemeTab_Covers.this,ThemeTab_Content.class);
                     intent.putExtra("position",1);
-                    view = TabHost_ThemeTab.ThemeTabGroup.getLocalActivityManager()
+                    view = TabHost_Theme.ThemeTabGroup.getLocalActivityManager()
                             .startActivity("Theme_Content",intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                             .getDecorView();
 
-                    TabHost_ThemeTab.ThemeTabGroup.replaceView(view);
+                    TabHost_Theme.ThemeTabGroup.replaceView(view);
                     break;
                 case 2:
                     //Toast.makeText(ThemeTab_Covers.this,"베토벤바이러스",Toast.LENGTH_SHORT).show();
                     intent = new Intent(ThemeTab_Covers.this,ThemeTab_Content.class);
                     intent.putExtra("position",2);
-                    view = TabHost_ThemeTab.ThemeTabGroup.getLocalActivityManager()
+                    view = TabHost_Theme.ThemeTabGroup.getLocalActivityManager()
                             .startActivity("Theme_Content",intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                             .getDecorView();
 
-                    TabHost_ThemeTab.ThemeTabGroup.replaceView(view);
+                    TabHost_Theme.ThemeTabGroup.replaceView(view);
                     break;
 
                 case 3:
                     //Toast.makeText(ThemeTab_Covers.this,"꺄♡ 갓설현 눌렀쪙",Toast.LENGTH_SHORT).show();
                     intent = new Intent(ThemeTab_Covers.this,ThemeTab_Content.class);
                     intent.putExtra("position",3);
-                    view = TabHost_ThemeTab.ThemeTabGroup.getLocalActivityManager()
+                    view = TabHost_Theme.ThemeTabGroup.getLocalActivityManager()
                             .startActivity("Theme_Content",intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                             .getDecorView();
 
-                    TabHost_ThemeTab.ThemeTabGroup.replaceView(view);
+                    TabHost_Theme.ThemeTabGroup.replaceView(view);
                     break;
                 case 4:
                     //Toast.makeText(ThemeTab_Covers.this,"정욱이 클릭됬쪙",Toast.LENGTH_SHORT).show();
                     intent = new Intent(ThemeTab_Covers.this,ThemeTab_Content.class);
                     intent.putExtra("position",4);
-                    view = TabHost_ThemeTab.ThemeTabGroup.getLocalActivityManager()
+                    view = TabHost_Theme.ThemeTabGroup.getLocalActivityManager()
                             .startActivity("Theme_Content",intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                             .getDecorView();
 
-                    TabHost_ThemeTab.ThemeTabGroup.replaceView(view);
+                    TabHost_Theme.ThemeTabGroup.replaceView(view);
                     break;
                 case 5:
                     //Toast.makeText(ThemeTab_Covers.this,"캬 간지남 두명",Toast.LENGTH_SHORT).show();
                     intent = new Intent(ThemeTab_Covers.this,ThemeTab_Content.class);
                     intent.putExtra("position",5);
-                    view = TabHost_ThemeTab.ThemeTabGroup.getLocalActivityManager()
+                    view = TabHost_Theme.ThemeTabGroup.getLocalActivityManager()
                             .startActivity("Theme_Content",intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                             .getDecorView();
 
-                    TabHost_ThemeTab.ThemeTabGroup.replaceView(view);
+                    TabHost_Theme.ThemeTabGroup.replaceView(view);
                     break;
 
 

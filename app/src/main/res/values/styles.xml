@@ -1,8 +1,8 @@
 <resources>
 
-    <!-- Base application theme. -->
+    <!-- Base application tab_theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+        <!-- Customize your tab_theme here. -->
     </style>
 
     <style name="Theme.Transparent" parent="android:Theme">

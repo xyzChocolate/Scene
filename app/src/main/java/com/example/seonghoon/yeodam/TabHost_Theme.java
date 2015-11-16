@@ -1,11 +1,8 @@
 package com.example.seonghoon.yeodam;
 
 import android.app.ActivityGroup;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
 
@@ -16,9 +13,9 @@ import java.util.ArrayList;
  */
 
 //테마탭에 대한 ActivityGroup
-public class TabHost_ThemeTab extends ActivityGroup {
+public class TabHost_Theme extends ActivityGroup {
 
-    public static TabHost_ThemeTab ThemeTabGroup;
+    public static TabHost_Theme ThemeTabGroup;
     private ArrayList<View> history;
 
     @Override
@@ -27,7 +24,7 @@ public class TabHost_ThemeTab extends ActivityGroup {
         history = new ArrayList<View>();
         ThemeTabGroup = this;
 
-        Intent intent = new Intent(TabHost_ThemeTab.this,ThemeTab_Covers.class);
+        Intent intent = new Intent(TabHost_Theme.this,ThemeTab_Covers.class);
         View view = getLocalActivityManager().startActivity("ThemeTab_Covers",
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)).getDecorView();
         replaceView(view);
