@@ -7,10 +7,14 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -34,7 +38,7 @@ public class ThemeTab_Covers extends Activity{
 
     //화면측정
     DisplayMetrics mMetrics;
-    Button findBtn;
+    ImageButton findBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,13 +50,26 @@ public class ThemeTab_Covers extends Activity{
         gridView.setAdapter(new ImageAdapter(this));
         gridView.setOnItemClickListener(gridviewOnItemClickListener);
 
-        findBtn = (Button)findViewById(R.id.findBtn);
+        findBtn = (ImageButton)findViewById(R.id.findBtn);
         findBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"찾기버튼눌렀쪄요?우쮸쮸쮸",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "찾기버튼눌렀쪄요?우쮸쮸쮸", Toast.LENGTH_LONG).show();
+                //findBtn.clearAnimation();
             }
         });
+
+        //깜박이는 애니메이션
+        /*
+        Animation animation = new AlphaAnimation(1,0);
+        animation.setDuration(700);
+        animation.setInterpolator(new LinearInterpolator());
+        animation.setRepeatCount(Animation.INFINITE);
+        animation.setRepeatMode(Animation.REVERSE);
+
+
+        findBtn.startAnimation(animation);
+         */
 
         mMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(mMetrics);

@@ -1,6 +1,7 @@
 package com.example.seonghoon.yeodam;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -20,7 +21,11 @@ public class TabHost_ScheduleMgmt extends ListActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab_schedulemgmt);
 
-        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, teamMember));
+        Intent intent = getIntent();
+        String[] name = intent.getExtras().getStringArray("planNameList");
+
+
+        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, name));
 
         selected=(TextView)findViewById(R.id.selected);
     }

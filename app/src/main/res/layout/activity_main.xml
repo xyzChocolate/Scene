@@ -8,15 +8,19 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/L1"
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:weightSum="100">
 
         <!--탭 버튼 (탭아래로)-->
         <TabWidget
             android:id="@android:id/tabs"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="75dp"
+            android:background="#00CCCB"
+
             />
         <!-- 탭아래로 내릴땐 RelativeLayout에
          다음내용 추가 android:layout_alignParentBottom="true"-->
@@ -24,7 +28,8 @@
         <FrameLayout
             android:id="@android:id/tabcontent"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
 
 
         </FrameLayout>

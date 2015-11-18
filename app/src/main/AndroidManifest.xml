@@ -48,7 +48,9 @@
             android:value="@integer/google_play_services_version" />
 
         <!--초기화면-->
-        <activity android:name=".SpalshActivity">
+        <activity android:name=".SpalshActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -62,27 +64,40 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.NoTitleBar"
-            android:windowSoftInputMode="stateHidden">
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait">
             <!-- 키보드감추기-->
+            <!-- 화면 세로고정-->
         </activity>
 
-        <!--여행테마Tab Activity-->
-        <activity android:name=".TabHost_Theme"></activity>
-        <activity android:name=".ThemeTab_Covers"></activity>
-        <activity android:name=".ThemeTab_Content"></activity>
-        <activity android:name=".FragmentPageSupport"></activity>
-
-        <!--일정관리Tab Activity-->
-        <activity android:name=".TabHost_ScheduleMgmt"></activity>
-
-        <!--주변여행지Tab Activity-->
-        <activity android:name=".TabHost_Surroundings"></activity>
-
-        <!--마이페이지Tab Activity-->
-        <activity android:name=".TabHost_MyPage"></activity>
 
         <!--앱정보Tab Activity-->
-        <activity android:name=".TabHost_AppInfo"></activity>
+
+        <!--여행테마Tab Activity-->
+        <activity android:name=".TabHost_Theme"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ThemeTab_Covers"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ThemeTab_Content"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".FragmentPageSupport"
+            android:screenOrientation="portrait"/>
+
+        <!--일정관리Tab Activity-->
+        <activity android:name=".TabHost_ScheduleMgmt"
+            android:screenOrientation="portrait"/>
+
+        <!--주변여행지Tab Activity-->
+        <activity android:name=".TabHost_Surroundings"
+            android:screenOrientation="portrait"/>
+
+        <!--마이페이지Tab Activity-->
+        <activity android:name=".TabHost_MyPage"
+            android:screenOrientation="portrait"/>
+
+        <!--앱정보Tab Activity-->
+        <activity android:name=".TabHost_AppInfo"
+            android:screenOrientation="portrait"/>
 
     </application>
 

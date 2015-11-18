@@ -5,26 +5,37 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="11">
 
     <!--검색창, 찾기버튼-->
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white">
+        android:layout_height="55dp"
+        android:background="#00CCCB"
+        android:padding="5dp"
+
+        >
 
         <EditText
             android:id="@+id/EditText01"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="2dp"
+            android:layout_width="305dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="2dp"
+            android:layout_gravity="center_horizontal"
+            android:paddingLeft="2dp"
+            android:textSize="20dp"
+            android:background="#ffffffff"
             android:hint="@string/find"/>
-        <Button
+        <ImageButton
             android:id="@+id/findBtn"
-            android:text="@string/findBtn"
-            android:layout_width="60dp"
-            android:layout_height="40dp"
+            android:paddingRight="2dp"
+            android:scaleType="fitCenter"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:src="@drawable/icon_search"
+            android:background="#ffffffff"
             />
 
     </LinearLayout>
@@ -34,7 +45,8 @@
         android:id="@+id/photogrid"
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:columnWidth="155dp"
