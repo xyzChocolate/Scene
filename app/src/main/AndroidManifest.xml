@@ -99,6 +99,10 @@
         <activity android:name=".TabHost_AppInfo"
             android:screenOrientation="portrait"/>
 
+        <!--자세히보기 Activity-->
+        <activity android:name=".ThemeTab_Content_More"
+            android:theme="@android:style/Theme.Dialog"/>
+
     </application>
 
 

@@ -7,7 +7,7 @@
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:src="@drawable/splash_real"
+        android:src="@drawable/splash_final"
         android:scaleType="fitXY"/>
 
 </LinearLayout>

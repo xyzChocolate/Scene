@@ -6,7 +6,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,6 +51,11 @@ public class MainActivity extends TabActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //
+        if (Build.VERSION.SDK_INT >= 21) {
+            getWindow().setStatusBarColor(Color.parseColor("#00CCCB"));
+        }
 
 
         //각 함수의 매니저를 호출
@@ -103,6 +110,7 @@ public class MainActivity extends TabActivity {
         TabHost.TabSpec tab1_spec = mTab.newTabSpec("tab1");
         Intent intent1 = new Intent();
         //호출하는 클래스 this, 호출되는 클래스 ThemeTab_Cover
+        intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent1.setClass(this, TabHost_Theme.class);
         //제목
         tab1_spec.setIndicator(new TabView(this,Tab_Unclicked[0],R.drawable.tab1_bg));
@@ -111,6 +119,7 @@ public class MainActivity extends TabActivity {
 
         //** 두번째 탭->ScheduleMgmt
         Intent intent2 = new Intent();
+        intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent2.setClass(this, TabHost_ScheduleMgmt.class);
         intent2.putExtra("planNameList", planManager.getAllPlanName());
         TabHost.TabSpec tab2_spec = mTab.newTabSpec("tab2");
@@ -121,6 +130,7 @@ public class MainActivity extends TabActivity {
         //** 세번째 탭->Surroundings
         TabHost.TabSpec tab3_spec = mTab.newTabSpec("tab3");
         Intent intent3 = new Intent();
+        intent3.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent3.setClass(this, TabHost_Surroundings.class);
         tab3_spec.setIndicator(new TabView(this,Tab_Unclicked[2],R.drawable.tab3_bg));
         tab3_spec.setContent(intent3);
@@ -128,14 +138,18 @@ public class MainActivity extends TabActivity {
 
         //** 네번째 탭->MyPage
         TabHost.TabSpec tab4_spec = mTab.newTabSpec("tab4");
-        Intent intent4 = new Intent().setClass(this,TabHost_MyPage.class);
+        Intent intent4 = new Intent();
+        intent4.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent4.setClass(this, TabHost_MyPage.class);
         tab4_spec.setIndicator(new TabView(this,Tab_Unclicked[3],R.drawable.tab4_bg));
         tab4_spec.setContent(intent4);
         mTab.addTab(tab4_spec);
 
         //** 다섯번째탭->AppInfo
         TabHost.TabSpec tab5_spec = mTab.newTabSpec("tab5");
-        Intent intent5 = new Intent().setClass(this,TabHost_AppInfo.class);
+        Intent intent5 = new Intent();
+        intent5.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent5.setClass(this, TabHost_AppInfo.class);
         tab5_spec.setIndicator(new TabView(this,Tab_Unclicked[4],R.drawable.tab5_bg));
         tab5_spec.setContent(intent5);
         mTab.addTab(tab5_spec);
@@ -200,6 +214,7 @@ public class MainActivity extends TabActivity {
         */
         //실행시 처음 보여지는 Tab index 설정
         mTab.getTabWidget().setCurrentTab(0);
+        mTab.getTabWidget().getChildAt(0).setSelected(true);
 
 
         //Array
@@ -225,8 +240,10 @@ public class MainActivity extends TabActivity {
     //H/W 뒤로가기버튼 Handler
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
+        Log.d("MainActvty"+"keydown()","called");
         switch(keyCode){
             case KeyEvent.KEYCODE_BACK:
+                Log.d("MainActvty"+"keycode_back","called");
                 new AlertDialog.Builder(this)
                         .setTitle("종료")
                         .setMessage("정말로 종료하시겠습니까?")
@@ -245,4 +262,8 @@ public class MainActivity extends TabActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        Log.d("MainActvty"+"Onbackpre","called");
+    }
 }

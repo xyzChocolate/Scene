@@ -3,28 +3,73 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="20">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="1">
+        android:layout_weight="20">
     </android.support.v4.view.ViewPager>
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:gravity="center"
         android:measureWithLargestChild="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0">
+        android:layout_weight="19"
+        android:weightSum="5">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:gravity="center_horizontal"
+            android:background="#E8E8E9"
+            >
+            <ImageView
+                android:id="@+id/page_1_icon"
+                android:layout_width="20dp"
+                android:layout_height="7dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/selected"/>
+
+            <ImageView
+                android:id="@+id/page_2_icon"
+                android:layout_width="20dp"
+                android:layout_height="7dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/not_selected"/>
+
+            <ImageView
+                android:id="@+id/page_3_icon"
+                android:layout_width="20dp"
+                android:layout_height="7dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/not_selected"/>
+
+            <ImageView
+                android:id="@+id/page_4_icon"
+                android:layout_width="20dp"
+                android:layout_height="7dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/not_selected"/>
+
+        </LinearLayout>
         <Button
             android:id="@+id/back_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/back_button"/>
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:text="@string/back_button"
+            android:background="#F3A133"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            />
 
     </LinearLayout>
 

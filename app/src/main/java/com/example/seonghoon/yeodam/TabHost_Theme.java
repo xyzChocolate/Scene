@@ -3,6 +3,7 @@ package com.example.seonghoon.yeodam;
 import android.app.ActivityGroup;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -38,16 +39,22 @@ public class TabHost_Theme extends ActivityGroup {
 
     //Back key가 눌러졌을 경우에 대한 처리
     public void back(){
+
         if(history.size()>0) {
+            Log.d("TabHost_Theme"+"back()",history.size()+">0");
             Toast.makeText(getApplicationContext(),"back",Toast.LENGTH_LONG).show();
             history.remove(history.size() - 1);
 
             if (history.size() == 0) {
+                Log.d("TabHost_Theme"+"back()",history.size()+"==0");
                 finish();
             } else {
+                Log.d("TabHost_Theme"+"back()",history.size()+"!=0");
                 setContentView(history.get(history.size() - 1));
             }
         }else{
+            Log.d("TabHost_Theme"+"back()",history.size()+"<0");
+
             finish();
         }
     }
@@ -56,10 +63,9 @@ public class TabHost_Theme extends ActivityGroup {
 
     @Override
     public void onBackPressed() {
+        Log.d("TabHost_Theme"+"OnBakPres","called");
         ThemeTabGroup.back();
         return ;
     }
-
-
 
 }

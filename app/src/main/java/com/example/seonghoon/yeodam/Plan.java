@@ -9,7 +9,7 @@ public class Plan {
 	private ArrayList<Integer> sceneCodeList;	//씬 코드 집합	
 	private String planName;		// 이름
 	private int planCode; 			// 코드
-	private Date startDate;				//여행 시작날짜
+	private Date startDate;			//여행 시작날짜
 	private Date endDate;				//여행 종료날짜
 	
 	public Plan() { 

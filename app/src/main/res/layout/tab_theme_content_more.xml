@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@null"
+    >
+    <!--가장 바깥쪽 레이아웃-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000">
+        <!-- 닫기버튼-->
+        <ImageButton
+            android:id="@+id/close_more"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right"
+            android:src="@drawable/close"
+            android:scaleType="fitCenter"
+            android:background="#00000000"
+        />
+        <!-- 내용 레이아웃-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ff0000"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+            <!-- 구분 바 레이아웃-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_margin="20dp"
+                    android:layout_width="20dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/bar"/>
+
+            </LinearLayout>
+
+            <!-- 첫번째 내용 레이아웃-->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/content_more1_followMe"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:text="@string/more_followMe"/>
+
+                <TextView
+                    android:id="@+id/content_more1_followMe_sub"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:background="#F3A133"
+                    android:text="@string/more_followMe_sub"
+                    />
+
+                <ImageView
+                    android:id="@+id/content_more1_img"
+                    android:layout_width="fill_parent"
+                    android:layout_height="210dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/p4"/>
+
+            </LinearLayout>
+            <!-- 구분 바 레이아웃-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_margin="20dp"
+                    android:layout_width="20dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/bar"/>
+
+            </LinearLayout>
+            <!-- 두번째 내용 레이아웃-->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/content_more2_mission"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:text="미션보상"/>
+
+
+                <ImageView
+                    android:id="@+id/content_more2_img"
+                    android:layout_width="fill_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/p4"/>
+
+            </LinearLayout>
+            <!-- 구분 바 레이아웃-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_margin="20dp"
+                    android:layout_width="20dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/bar"/>
+
+            </LinearLayout>
+            <!-- 세번째 내용 레이아웃-->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/content_more3_more"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:text="상세정보"/>
+
+
+                <TextView
+                    android:id="@+id/content_more3_moreInfo"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:background="#E8E8E9"
+                    android:gravity="center"
+                    android:text="@string/moreInfo"/>
+
+            </LinearLayout>
+            <!-- 구분 바 레이아웃-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_margin="20dp"
+                    android:layout_width="20dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/bar"/>
+
+            </LinearLayout>
+            <!-- 네번째 내용 레이아웃-->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/content_more4_food"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:text="먹을거리"/>
+
+                <!--먹을거리 이미지를 위한 레이아웃-->
+                <LinearLayout
+
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/content_more4_foodimg1"
+                        android:layout_width="165dp"
+                        android:layout_height="70dp"
+                        android:layout_margin="10dp"
+                        android:gravity="center_vertical"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/p4"/>
+
+                    <ImageView
+                        android:id="@+id/content_more4_foodimg2"
+                        android:layout_width="165dp"
+                        android:layout_height="70dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center_vertical"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/p4"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/content_more4_foodInfo"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:background="#E8E8E9"
+                    android:gravity="center"
+                    android:text="@string/moreInfo"/>
+
+            </LinearLayout>
+            <!-- 구분 바 레이아웃-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_margin="20dp"
+                    android:layout_width="20dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/bar"/>
+
+            </LinearLayout>
+            <!-- 다섯번째 내용 레이아웃-->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/content_more5_surroundings"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:text="먹을거리"/>
+
+                <!--먹을거리 이미지를 위한 레이아웃-->
+                <LinearLayout
+
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/content_more5_surroundingsimg1"
+                        android:layout_width="165dp"
+                        android:layout_height="70dp"
+                        android:layout_margin="10dp"
+                        android:gravity="center_vertical"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/p5"/>
+
+                    <ImageView
+                        android:id="@+id/content_more5_surroundingsimg2"
+                        android:layout_width="165dp"
+                        android:layout_height="70dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center_vertical"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/p5"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/content_more5_surroundingsInfo"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:background="#E8E8E9"
+                    android:gravity="center"
+                    android:text="@string/moreInfo"/>
+
+            </LinearLayout>
+            <!-- 끝의 여백-->
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="50dp" />
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
+

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
@@ -82,6 +83,7 @@ public class ThemeTab_Covers extends Activity{
 
             //Toast.makeText(ThemeTab_Covers.this,parent.getAdapter().getItem(position).toString(),
             //Toast.LENGTH_LONG).show();
+            /*
             switch(position){
                 case 0:
                     //Toast.makeText(ThemeTab_Covers.this,"가을동화클릭클릭",Toast.LENGTH_SHORT).show();
@@ -97,7 +99,7 @@ public class ThemeTab_Covers extends Activity{
                 case 1:
                     //Toast.makeText(ThemeTab_Covers.this,"어린가을동화클릭",Toast.LENGTH_SHORT).show();
                     intent = new Intent(ThemeTab_Covers.this,ThemeTab_Content.class);
-                    intent.putExtra("position",1);
+                    intent.putExtra("position",position);
                     view = TabHost_Theme.ThemeTabGroup.getLocalActivityManager()
                             .startActivity("Theme_Content",intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                             .getDecorView();
@@ -147,8 +149,19 @@ public class ThemeTab_Covers extends Activity{
                     break;
 
 
-            }
+            }*/
+
+            intent = new Intent(ThemeTab_Covers.this,ThemeTab_Content.class);
+            intent.putExtra("position",position);
+            view = TabHost_Theme.ThemeTabGroup.getLocalActivityManager()
+                    .startActivity("Theme_Content",intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+                    .getDecorView();
+
+            TabHost_Theme.ThemeTabGroup.replaceView(view);
+
+            Log.d("YEODAM"+"ThemeTab","Tap position: " + position);
         }
+
     };
 
 
@@ -195,4 +208,9 @@ public class ThemeTab_Covers extends Activity{
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Log.d("ThemeTab_Covers"+"back","onback called");
+        super.onBackPressed();
+    }
 }
