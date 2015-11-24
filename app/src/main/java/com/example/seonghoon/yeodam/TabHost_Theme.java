@@ -25,7 +25,11 @@ public class TabHost_Theme extends ActivityGroup {
         history = new ArrayList<View>();
         ThemeTabGroup = this;
 
+        ThemaManager themaManager = this.getIntent().getParcelableExtra("themaManager");
+        SceneManager sceneManager = this.getIntent().getParcelableExtra("sceneManager");
         Intent intent = new Intent(TabHost_Theme.this,ThemeTab_Covers.class);
+        intent.putExtra("themaManager",themaManager);
+        intent.putExtra("sceneManager",sceneManager);
         View view = getLocalActivityManager().startActivity("ThemeTab_Covers",
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)).getDecorView();
         replaceView(view);

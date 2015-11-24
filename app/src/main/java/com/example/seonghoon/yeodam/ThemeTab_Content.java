@@ -27,7 +27,7 @@ import android.widget.Toast;
 public class ThemeTab_Content extends FragmentActivity implements View.OnClickListener {
 
 
-    static final int NUM_ITEM = 6;
+    static final int NUM_ITEM = 4;
     private ViewPager mPager;       //
     private ViewPagerAdapter mAdapter;
     private Button back_btn;        //뒤로가기 버튼
@@ -38,8 +38,9 @@ public class ThemeTab_Content extends FragmentActivity implements View.OnClickLi
     private ImageView page_4_icon;
     private Drawable Selected_icon;
     private Drawable notSelecteed_icon;
-
-
+    private static ThemaManager themaManager;
+    private static SceneManager sceneManager;
+    private static int reqNewFragmentIndex;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +49,12 @@ public class ThemeTab_Content extends FragmentActivity implements View.OnClickLi
 
         //선택된 테마의 인덱스 값 받아오기
         intent = getIntent();
-        int reqNewFragmentIndex = intent.getExtras().getInt("position");
+        reqNewFragmentIndex = intent.getExtras().getInt("position");
+        themaManager = this.getIntent().getParcelableExtra("themaManager");
+        sceneManager = this.getIntent().getParcelableExtra("sceneManager");
+
+
+
         Log.i("받은값",reqNewFragmentIndex+"");
 
         //선택된 테마의 자세히보기로 옮기기
@@ -156,12 +162,8 @@ public class ThemeTab_Content extends FragmentActivity implements View.OnClickLi
             mPager.setCurrentItem(2);
         }else if(index == 3){
             mPager.setCurrentItem(3);
-        }else if(index == 4){
+        }else {
             mPager.setCurrentItem(4);
-        }else if(index == 5){
-            mPager.setCurrentItem(5);
-        }else{
-            mPager.setCurrentItem(6);
         }
 
     }
@@ -235,7 +237,7 @@ public class ThemeTab_Content extends FragmentActivity implements View.OnClickLi
             title = (TextView)view.findViewById(R.id.fragment_title);
             title.setText("# "+(mPosition+1)+"장");
             subtitle = (TextView)view.findViewById(R.id.fragment_subtitle);
-            subtitle.setText("썰물이 되어 다가온 은서");
+
 
             hashTag = (TextView)view.findViewById(R.id.fragment_hash_tag);
 
@@ -262,6 +264,30 @@ public class ThemeTab_Content extends FragmentActivity implements View.OnClickLi
                     Log.d("ThemeTab_Content","일정추가 버튼 클릭");
                 }
             });
+
+            switch(mPosition){
+                case 0:
+                    subtitle.setText(themaManager.getThemaName(mPosition));
+                    drawable = ContextCompat.getDrawable( getContext(), R.drawable.p1);
+                    image.setImageDrawable(drawable);
+                    break;
+                case 1:
+                    subtitle.setText(themaManager.getThemaName(mPosition));
+                    drawable = ContextCompat.getDrawable( getContext(), R.drawable.p2);
+                    image.setImageDrawable(drawable);
+                    break;
+                case 2:
+                    subtitle.setText(themaManager.getThemaName(mPosition));
+                    drawable = ContextCompat.getDrawable( getContext(), R.drawable.p3);
+                    image.setImageDrawable(drawable);
+                    break;
+                case 3:
+                    subtitle.setText(themaManager.getThemaName(mPosition));
+                    drawable = ContextCompat.getDrawable( getContext(), R.drawable.p4);
+                    image.setImageDrawable(drawable);
+                    break;
+
+            }
 
 
             return view;

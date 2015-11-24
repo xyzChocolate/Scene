@@ -13,7 +13,7 @@ import android.widget.TextView;
  */
 public class TabHost_ScheduleMgmt extends ListActivity{
 
-    private String[] teamMember = {"김슬범","김정욱","김준영","조성훈","김슬빵","홍병우교수님","김쥬뇽","설현★"};
+    //private String[] teamMember = {"김슬범","김정욱","김준영","조성훈","김슬빵","홍병우교수님","김쥬뇽","설현★"};
     private TextView selected;
 
     @Override
@@ -24,7 +24,6 @@ public class TabHost_ScheduleMgmt extends ListActivity{
         Intent intent = getIntent();
         String[] name = intent.getExtras().getStringArray("planNameList");
 
-
         setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, name));
 
         selected=(TextView)findViewById(R.id.selected);
@@ -32,6 +31,6 @@ public class TabHost_ScheduleMgmt extends ListActivity{
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
-        selected.setText("Selected Item : "+teamMember[position]);
+
     }
 }

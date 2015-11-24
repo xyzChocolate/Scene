@@ -30,16 +30,13 @@ public class MainActivity extends TabActivity {
     ImageView iv;
 
 
-
-
-
     int Tab_Unclicked[] = {R.drawable.icon_03_theme,R.drawable.icon_01_schedule,R.drawable.icon_04_maos,
             R.drawable.icon_02_mytravel,R.drawable.icon_05_info};
     int Tab_Clicked[] = {R.drawable.icon_clicked_03,R.drawable.icon_clicked_01,R.drawable.icon_clicked_04,
                         R.drawable.icon_clicked_02,R.drawable.icon_clicked_05};
 
 
-        //raw 파일 이름으로 inputStream을 받아오는 매소드
+    //raw 파일 이름으로 inputStream을 받아오는 매소드
     public InputStream getInputStream(String string) {
         InputStream ins = getResources().openRawResource(getResources().getIdentifier(string,"raw",getPackageName()));
         return ins;
@@ -112,6 +109,8 @@ public class MainActivity extends TabActivity {
         //호출하는 클래스 this, 호출되는 클래스 ThemeTab_Cover
         intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent1.setClass(this, TabHost_Theme.class);
+        intent1.putExtra("themaManager",themaManager);
+        intent1.putExtra("sceneManager",sceneManager);
         //제목
         tab1_spec.setIndicator(new TabView(this,Tab_Unclicked[0],R.drawable.tab1_bg));
         tab1_spec.setContent(intent1);
