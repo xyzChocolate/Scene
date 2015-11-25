@@ -8,12 +8,8 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -86,11 +82,49 @@ public class ThemeTab_Covers extends Activity{
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-            intent = new Intent(ThemeTab_Covers.this,ThemeTab_Content.class);
+            switch (position){
+                case 0:
+                    intent = new Intent(ThemeTab_Covers.this,ThemeTab_Content_1.class);
+                    intent.putExtra("position",position);
+                    intent.putExtra("themaManager",themaManager);
+                    intent.putExtra("sceneManager", sceneManager);
+                    break;
+                case 1:
+                    intent = new Intent(ThemeTab_Covers.this,ThemeTab_Content_2.class);
+                    intent.putExtra("position",position);
+                    intent.putExtra("themaManager",themaManager);
+                    intent.putExtra("sceneManager", sceneManager);
+                    break;
+                case 2:
+                    intent = new Intent(ThemeTab_Covers.this,ThemeTab_Content_3.class);
+                    intent.putExtra("position",position);
+                    intent.putExtra("themaManager",themaManager);
+                    intent.putExtra("sceneManager", sceneManager);
+                    break;
+                case 3:
+                    intent = new Intent(ThemeTab_Covers.this,ThemeTab_Content_4.class);
+                    intent.putExtra("position",position);
+                    intent.putExtra("themaManager",themaManager);
+                    intent.putExtra("sceneManager", sceneManager);
+                    break;
+                case 4:
+                    intent = new Intent(ThemeTab_Covers.this,ThemeTab_Content_5.class);
+                    intent.putExtra("position",position);
+                    intent.putExtra("themaManager",themaManager);
+                    intent.putExtra("sceneManager", sceneManager);
+                    break;
+                case 5:
+                    intent = new Intent(ThemeTab_Covers.this,ThemeTab_Content_6.class);
+                    intent.putExtra("position",position);
+                    intent.putExtra("themaManager",themaManager);
+                    intent.putExtra("sceneManager", sceneManager);
+                    break;
 
-            intent.putExtra("position",position);
-            intent.putExtra("themaManager",themaManager);
-            intent.putExtra("sceneManager",sceneManager);
+            }
+
+
+
+
             view = TabHost_Theme.ThemeTabGroup.getLocalActivityManager()
                     .startActivity("Theme_Content",intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                     .getDecorView();

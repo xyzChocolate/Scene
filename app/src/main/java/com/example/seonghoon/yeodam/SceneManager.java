@@ -66,6 +66,9 @@ public class SceneManager implements ISceneIOhandler,Parcelable {
 		return 0;
 	}
 
+	public Scene getOneScene(int index) {
+		return sceneContainer.get(index);
+	}
 	@Override
 	public int describeContents() {
 		return 0;

@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -24,7 +23,7 @@ import android.widget.Toast;
 /**
  * Created by Seonghoon on 2015-11-12.
  */
-public class ThemeTab_Content extends FragmentActivity implements View.OnClickListener {
+public class ThemeTab_Content_1 extends FragmentActivity implements View.OnClickListener {
 
 
     static final int NUM_ITEM = 4;
@@ -59,7 +58,7 @@ public class ThemeTab_Content extends FragmentActivity implements View.OnClickLi
 
         //선택된 테마의 자세히보기로 옮기기
         //fragmentReplace(reqNewFragmentIndex);
-        setCurretItem(reqNewFragmentIndex);
+        //setCurretItem(reqNewFragmentIndex);
 
         mPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener(){ //아이템이 변경되면
             //아이템이 선택이 되었으면
@@ -194,7 +193,10 @@ public class ThemeTab_Content extends FragmentActivity implements View.OnClickLi
     }
     public static class ArrayFragment extends Fragment{
 
-        int mPosition;
+
+        int mThemeNumber;
+        int mSceneNumber;
+        String[] sceneInfo;
 
         public TextView title;
         public TextView subtitle;
@@ -221,21 +223,26 @@ public class ThemeTab_Content extends FragmentActivity implements View.OnClickLi
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            mPosition = getArguments() != null? getArguments().getInt("position"):0;
+            mThemeNumber = getArguments() != null? getArguments().getInt("position"):0;
 
+            mSceneNumber = 0;
+            //SceneData Index
+            sceneInfo = getThemeInfo(mSceneNumber);
         }
 
         //fragment UI
 
-        //@Nullable
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+
             View view = inflater.inflate(R.layout.tab_theme_content_fragment, container, false);
 
             Drawable drawable = ContextCompat.getDrawable( getContext(), R.drawable.p1);
 
             title = (TextView)view.findViewById(R.id.fragment_title);
-            title.setText("# "+(mPosition+1)+"장");
+            title.setText("#"+(mThemeNumber+1)+"장");
             subtitle = (TextView)view.findViewById(R.id.fragment_subtitle);
 
 
@@ -250,7 +257,7 @@ public class ThemeTab_Content extends FragmentActivity implements View.OnClickLi
             more.findViewById(R.id.view_more_1).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d("ThemeTab_Content","자세히보기 버튼 클릭");
+                    Log.d("ThemeTab_Content_1","자세히보기 버튼 클릭");
                     Intent intent = new Intent().setClass(getContext(),ThemeTab_Content_More.class);
                     startActivity(intent);
 
@@ -261,28 +268,37 @@ public class ThemeTab_Content extends FragmentActivity implements View.OnClickLi
             addPlan.findViewById(R.id.addplan_1).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d("ThemeTab_Content","일정추가 버튼 클릭");
+                    Log.d("ThemeTab_Content_1","일정추가 버튼 클릭");
                 }
             });
 
-            switch(mPosition){
+
+
+
+
+            //Scene View
+            switch(mThemeNumber){
                 case 0:
-                    subtitle.setText(themaManager.getThemaName(mPosition));
+                    subtitle.setText(sceneManager.getOneScene(0).getSceneName());
+                    hashTag.setText(sceneManager.getOneScene(0).getHashTag());
                     drawable = ContextCompat.getDrawable( getContext(), R.drawable.p1);
                     image.setImageDrawable(drawable);
                     break;
                 case 1:
-                    subtitle.setText(themaManager.getThemaName(mPosition));
+                    subtitle.setText(sceneManager.getOneScene(1).getSceneName());
+                    hashTag.setText(sceneManager.getOneScene(1).getHashTag());
                     drawable = ContextCompat.getDrawable( getContext(), R.drawable.p2);
                     image.setImageDrawable(drawable);
                     break;
                 case 2:
-                    subtitle.setText(themaManager.getThemaName(mPosition));
+                    subtitle.setText(sceneManager.getOneScene(2).getSceneName());
+                    hashTag.setText(sceneManager.getOneScene(2).getHashTag());
                     drawable = ContextCompat.getDrawable( getContext(), R.drawable.p3);
                     image.setImageDrawable(drawable);
                     break;
                 case 3:
-                    subtitle.setText(themaManager.getThemaName(mPosition));
+                    subtitle.setText(sceneManager.getOneScene(3).getSceneName());
+                    hashTag.setText(sceneManager.getOneScene(3).getHashTag());
                     drawable = ContextCompat.getDrawable( getContext(), R.drawable.p4);
                     image.setImageDrawable(drawable);
                     break;
@@ -291,6 +307,29 @@ public class ThemeTab_Content extends FragmentActivity implements View.OnClickLi
 
 
             return view;
+
+        }
+        public String[] getThemeInfo(int mSceneNumber){
+            String[]  info = new String[24];
+
+            for(int i=0 ; i<24; i++){
+                info[i] = new String();
+            }
+
+            for(int i = 0;i<4; i++) {
+
+                info[i * 6] = sceneManager.getOneScene(mSceneNumber).getSceneName();
+                info[i * 6 + 1] = sceneManager.getOneScene(mSceneNumber).getHashTag();
+                info[i * 6 + 2] = sceneManager.getOneScene(mSceneNumber).getSceneMission();
+                info[i * 6 + 3] = sceneManager.getOneScene(mSceneNumber).getSceneStroy();
+                info[i * 6 + 4] = sceneManager.getOneScene(mSceneNumber).getSceneInfo();
+                info[i * 6 + 5] = sceneManager.getOneScene(mSceneNumber).getFoodGuide();
+
+                mSceneNumber++;
+            }
+
+            return info;
+
 
         }
     }

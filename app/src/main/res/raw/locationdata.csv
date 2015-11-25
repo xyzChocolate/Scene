@@ -1,5 +1,5 @@
-LocationName,LocationCode,PictureAddress,LocationInfo
-장소1,80001001,locationPicture_01.jpg,장소정보01
-장소2,80001002,locationPicture_02.jpg,장소정보02
-장소3,80001003,locationPicture_03.jpg,장소정보03
-장소4,80001004,locationPicture_04.jpg,장소정보04
+LocationName,LocationCode,PictureAddress,LocationInfo,latitude,longitude
+강촌클래식펜션,80001001,locationPicture_01.jpg,강원 춘천시 남산면 풀무골1길 22,37.796746,127.642272
+지암물레방아,80001002,locationPicture_02.jpg,강원도 춘천시 사북면 화악지암길 370-51,37.976613,127.602296
+뜨라네 모텔,80001003,locationPicture_03.jpg,강원도 춘천시 구마니길 36,37.868752,127.700109
+수아르모텔,80001004,locationPicture_04.jpg,강원도 춘천시 중앙로27번길 9-1,37.882204,127.729415

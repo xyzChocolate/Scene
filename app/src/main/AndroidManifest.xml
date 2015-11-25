@@ -78,8 +78,19 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".ThemeTab_Covers"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ThemeTab_Content"
+        <activity android:name=".ThemeTab_Content_1"
             android:screenOrientation="portrait"/>
+        <activity android:name=".ThemeTab_Content_2"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ThemeTab_Content_3"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ThemeTab_Content_4"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ThemeTab_Content_5"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ThemeTab_Content_6"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".FragmentPageSupport"
             android:screenOrientation="portrait"/>
 
