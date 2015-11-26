@@ -2,6 +2,7 @@ package com.example.seonghoon.yeodam;
 
 import android.app.ActivityGroup;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,12 +28,26 @@ public class TabHost_Theme extends ActivityGroup {
 
         ThemaManager themaManager = this.getIntent().getParcelableExtra("themaManager");
         SceneManager sceneManager = this.getIntent().getParcelableExtra("sceneManager");
+
+        SharedPreferences pref_theme = getSharedPreferences("themeNum", MODE_PRIVATE);
+        SharedPreferences.Editor editor_theme= pref_theme.edit();
+        editor_theme.remove("themeNum");
+        editor_theme.commit();
+
+        SharedPreferences pref_scene = getSharedPreferences("sceneNum", MODE_PRIVATE);
+        SharedPreferences.Editor editor_scene= pref_scene.edit();
+        editor_scene.remove("sceneNum");
+        editor_scene.commit();
+
+
         Intent intent = new Intent(TabHost_Theme.this,ThemeTab_Covers.class);
         intent.putExtra("themaManager",themaManager);
-        intent.putExtra("sceneManager",sceneManager);
+        intent.putExtra("sceneManager", sceneManager);
         View view = getLocalActivityManager().startActivity("ThemeTab_Covers",
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)).getDecorView();
         replaceView(view);
+
+
     }
 
     //새로운 Level의 Activity를 추가하는 경우

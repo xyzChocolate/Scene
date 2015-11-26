@@ -3,6 +3,7 @@ package com.example.seonghoon.yeodam;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -40,17 +41,35 @@ public class ThemeTab_Content_2 extends FragmentActivity implements View.OnClick
     private static ThemaManager themaManager;
     private static SceneManager sceneManager;
     private static int reqNewFragmentIndex;
+    private static SharedPreferences preferences;
+    private static SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab_theme_content);
         initLayout();
 
+
         //선택된 테마의 인덱스 값 받아오기
         intent = getIntent();
         reqNewFragmentIndex = intent.getExtras().getInt("position");
         themaManager = this.getIntent().getParcelableExtra("themaManager");
         sceneManager = this.getIntent().getParcelableExtra("sceneManager");
+
+        //테마정보저장
+        preferences = getSharedPreferences("themeNum", MODE_PRIVATE);
+        editor = preferences.edit();
+        //이미 가지고 있는 테마넘버 지우고
+        editor.remove("themeNum");
+        editor.commit();
+        //현재 테마 저장
+        editor.putInt("themeNum", 1);//2번테마
+        editor.commit();
+        preferences = getSharedPreferences("sceneNum", MODE_PRIVATE);
+        editor = preferences.edit();
+        editor.remove("sceneNum");
+        editor.commit();
+
 
 
 
@@ -194,7 +213,7 @@ public class ThemeTab_Content_2 extends FragmentActivity implements View.OnClick
     public static class ArrayFragment extends Fragment{
 
 
-        int mThemeNumber;
+        int mPosition;
         int mSceneNumber;
         String[] sceneInfo;
 
@@ -223,7 +242,7 @@ public class ThemeTab_Content_2 extends FragmentActivity implements View.OnClick
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            mThemeNumber = getArguments() != null? getArguments().getInt("position"):0;
+            mPosition = getArguments() != null? getArguments().getInt("position"):0;
 
             mSceneNumber = 4;
             //SceneData Index
@@ -243,7 +262,7 @@ public class ThemeTab_Content_2 extends FragmentActivity implements View.OnClick
             Drawable drawable = ContextCompat.getDrawable( getContext(), R.drawable.p1);
 
             title = (TextView)view.findViewById(R.id.fragment_title);
-            title.setText("#"+(mThemeNumber+1)+"장");
+            title.setText("#"+(mPosition+1)+"장");
             subtitle = (TextView)view.findViewById(R.id.fragment_subtitle);
 
 
@@ -260,6 +279,9 @@ public class ThemeTab_Content_2 extends FragmentActivity implements View.OnClick
                 public void onClick(View v) {
                     Log.d("ThemeTab_Content_1","자세히보기 버튼 클릭");
                     Intent intent = new Intent().setClass(getContext(),ThemeTab_Content_More.class);
+                    intent.putExtra("ThemeNum",reqNewFragmentIndex);
+                    intent.putExtra("mPosition", mPosition);
+                    intent.putExtra("SceneInfo",sceneInfo);
                     startActivity(intent);
 
                 }
@@ -269,7 +291,9 @@ public class ThemeTab_Content_2 extends FragmentActivity implements View.OnClick
             addPlan.findViewById(R.id.addplan_1).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d("ThemeTab_Content_1","일정추가 버튼 클릭");
+                    Log.d("ThemeTab_Content_2","일정추가 버튼 클릭");
+                    editor.putInt("sceneNum", mPosition);
+                    editor.commit();
                 }
             });
 
@@ -278,28 +302,32 @@ public class ThemeTab_Content_2 extends FragmentActivity implements View.OnClick
 
 
             //Scene View
-            switch(mThemeNumber){
+            switch(mPosition){
                 case 0:
                     subtitle.setText(sceneManager.getOneScene(4).getSceneName());
                     hashTag.setText(sceneManager.getOneScene(4).getHashTag());
+                    content.setText(sceneManager.getOneScene(4).getSceneStroy());
                     drawable = ContextCompat.getDrawable( getContext(), R.drawable.p1);
                     image.setImageDrawable(drawable);
                     break;
                 case 1:
                     subtitle.setText(sceneManager.getOneScene(5).getSceneName());
                     hashTag.setText(sceneManager.getOneScene(5).getHashTag());
+                    content.setText(sceneManager.getOneScene(5).getSceneStroy());
                     drawable = ContextCompat.getDrawable( getContext(), R.drawable.p2);
                     image.setImageDrawable(drawable);
                     break;
                 case 2:
                     subtitle.setText(sceneManager.getOneScene(6).getSceneName());
                     hashTag.setText(sceneManager.getOneScene(6).getHashTag());
+                    content.setText(sceneManager.getOneScene(6).getSceneStroy());
                     drawable = ContextCompat.getDrawable( getContext(), R.drawable.p3);
                     image.setImageDrawable(drawable);
                     break;
                 case 3:
                     subtitle.setText(sceneManager.getOneScene(7).getSceneName());
                     hashTag.setText(sceneManager.getOneScene(7).getHashTag());
+                    content.setText(sceneManager.getOneScene(7).getSceneStroy());
                     drawable = ContextCompat.getDrawable( getContext(), R.drawable.p4);
                     image.setImageDrawable(drawable);
                     break;

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -112,7 +113,7 @@ public class MainActivity extends TabActivity {
         intent1.putExtra("themaManager",themaManager);
         intent1.putExtra("sceneManager",sceneManager);
         //제목
-        tab1_spec.setIndicator(new TabView(this,Tab_Unclicked[0],R.drawable.tab1_bg));
+        tab1_spec.setIndicator(new TabView(this,Tab_Clicked[0],R.drawable.tab1_bg));
         tab1_spec.setContent(intent1);
         mTab.addTab(tab1_spec);
 
@@ -121,6 +122,8 @@ public class MainActivity extends TabActivity {
         intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent2.setClass(this, TabHost_ScheduleMgmt.class);
         intent2.putExtra("planNameList", planManager.getAllPlanName());
+        intent2.putExtra("themaManager",themaManager);
+        intent2.putExtra("sceneManager",sceneManager);
         TabHost.TabSpec tab2_spec = mTab.newTabSpec("tab2");
         tab2_spec.setIndicator(new TabView(this,Tab_Unclicked[1],R.drawable.tab2_bg));
         tab2_spec.setContent(intent2);
@@ -149,13 +152,17 @@ public class MainActivity extends TabActivity {
         Intent intent5 = new Intent();
         intent5.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent5.setClass(this, TabHost_AppInfo.class);
-        tab5_spec.setIndicator(new TabView(this,Tab_Unclicked[4],R.drawable.tab5_bg));
+        tab5_spec.setIndicator(new TabView(this, Tab_Unclicked[4], R.drawable.tab5_bg));
         tab5_spec.setContent(intent5);
         mTab.addTab(tab5_spec);
 
 
+        mTab.getTabWidget().setCurrentTab(0);
+        //첫번째 탭 눌러진상태
+        mTab.getTabWidget().getChildAt(0).setPressed(true);
 
 
+/*
         //Tab색깔 바꾸기
         for(int i=0; i < mTab.getTabWidget().getChildCount();i++)
         {
@@ -210,7 +217,7 @@ public class MainActivity extends TabActivity {
             }
         });
 
-        */
+
         //실행시 처음 보여지는 Tab index 설정
         mTab.getTabWidget().setCurrentTab(0);
         mTab.getTabWidget().getChildAt(0).setSelected(true);
@@ -233,7 +240,7 @@ public class MainActivity extends TabActivity {
         }
 
 
-
+    */
     }
 
     //H/W 뒤로가기버튼 Handler

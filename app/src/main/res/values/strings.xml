@@ -3,7 +3,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="find">검색할 내용 입력하쇼</string>
+    <string name="find">검색할 내용을 입력하세요.</string>
     <string name="findBtn">찾기</string>
     <string name="tab1">탭1</string>
     <string name="first">맨앞으로</string>

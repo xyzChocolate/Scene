@@ -48,6 +48,8 @@
         android:layout_height="0dp"
         android:layout_weight="10"
         android:layout_marginLeft="5dp"
+        android:paddingLeft="1dp"
+        android:paddingRight="1dp"
         android:layout_marginRight="5dp"
         android:columnWidth="155dp"
         android:gravity="center_horizontal|center"

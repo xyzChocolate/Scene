@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mgmt_layout"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
     android:background="#E8E8E9">
     <LinearLayout
         android:orientation="vertical"
@@ -23,7 +26,7 @@
             >
 
             <TextView
-                android:id="@+id/schedulemgmt_title"
+                android:id="@+id/title"
                 android:layout_width="150dp"
                 android:layout_height="fill_parent"
                 android:layout_marginTop="10dp"
@@ -39,14 +42,14 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:paddingTop="10dp"
-                android:layout_marginLeft="150dp"
+                android:layout_marginLeft="100dp"
                 android:layout_gravity="center_vertical|right"
                 android:background="#00000000"
                 android:scaleType="fitCenter"
                 android:src="@drawable/modify"/>
 
         </LinearLayout>
-        <ScrollView
+        <HorizontalScrollView
             android:layout_width="wrap_content"
             android:layout_height="100dp"
 
@@ -60,14 +63,14 @@
 
 
                 <ImageView
-                    android:id="@+id/schedule1_1"
+                    android:id="@+id/scheduleview_1"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/p2"
                     />
                 <ImageView
-                    android:id="@+id/schedule1_2"
+                    android:id="@+id/scheduleview_2"
                     android:layout_marginLeft="5dp"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
@@ -75,7 +78,7 @@
                     android:src="@drawable/p2"
                     />
                 <ImageView
-                    android:id="@+id/schedule1_3"
+                    android:id="@+id/scheduleview_3"
                     android:layout_marginLeft="5dp"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
@@ -83,7 +86,7 @@
                     android:src="@drawable/p2"
                     />
                 <ImageView
-                    android:id="@+id/schedule1_4"
+                    android:id="@+id/scheduleview_4"
                     android:layout_marginLeft="5dp"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
@@ -94,7 +97,7 @@
 
             </LinearLayout>
 
-        </ScrollView>
+        </HorizontalScrollView>
 
     </LinearLayout>
 

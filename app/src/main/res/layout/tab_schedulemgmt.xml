@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="15dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="fill_parent"
-    android:background="#a1b2c3"
-    android:weightSum="9">
-
-    <ListView
-        android:id="@android:id/list"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="8" />
-
+    android:background="#ffffff"
+    android:weightSum="10">
 
     <TextView
-        android:id="@+id/selected"
-        android:background="#ffff00"
+        android:layout_margin="10dp"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:text="내가 추가한 일정"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:background="#8800CCCB"
+        android:layout_weight="1"
+        android:textSize="20dp"/>
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/dynamic_area"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+        </LinearLayout>
+    </ScrollView>
+
+
 
 </LinearLayout>

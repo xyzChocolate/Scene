@@ -1,32 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@null"
     >
-    <!--가장 바깥쪽 레이아웃-->
-    <LinearLayout
+
+    <!-- 닫기버튼-->
+    <ImageButton
+        android:id="@+id/close_more"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="right"
+        android:src="@drawable/close"
+        android:scaleType="fitCenter"
+        android:background="#00000000"
+        />
+    <!--내용 레이아웃-->
+    <ScrollView
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#000000">
-        <!-- 닫기버튼-->
-        <ImageButton
-            android:id="@+id/close_more"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="right"
-            android:src="@drawable/close"
-            android:scaleType="fitCenter"
-            android:background="#00000000"
-        />
+        android:layout_height="wrap_content"
+        android:background="@null">
+
         <!-- 내용 레이아웃-->
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#ff0000"
+            android:background="#ffffff"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             >
@@ -58,15 +60,20 @@
                     android:gravity="center"
                     android:textStyle="bold"
                     android:textSize="20dp"
+                    android:textColor="#000000"
                     android:text="@string/more_followMe"/>
 
                 <TextView
                     android:id="@+id/content_more1_followMe_sub"
                     android:layout_width="fill_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="15dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingBottom="10dp"
                     android:gravity="center"
                     android:textColor="#ffffff"
                     android:textStyle="bold"
@@ -114,19 +121,28 @@
                     android:gravity="center"
                     android:textStyle="bold"
                     android:textSize="20dp"
+                    android:textColor="#000000"
                     android:text="미션보상"/>
 
-
-                <ImageView
-                    android:id="@+id/content_more2_img"
+                <LinearLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="100dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/coupon"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
                     android:layout_marginBottom="10dp"
-                    android:gravity="center"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/p4"/>
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/content_more2_coupon"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:gravity="center"
+                        android:scaleType="centerCrop"
+                        android:text="갯배이용권"
+                        android:textStyle="bold"
+                        android:textSize="17dp"
+                        android:textColor="#ffffff"/>
+                </LinearLayout>
 
             </LinearLayout>
             <!-- 구분 바 레이아웃-->
@@ -156,6 +172,7 @@
                     android:gravity="center"
                     android:textStyle="bold"
                     android:textSize="20dp"
+                    android:textColor="#000000"
                     android:text="상세정보"/>
 
 
@@ -166,10 +183,11 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="10dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
                     android:background="#E8E8E9"
                     android:gravity="center"
+                    android:textColor="#000000"
                     android:text="@string/moreInfo"/>
 
             </LinearLayout>
@@ -200,6 +218,7 @@
                     android:gravity="center"
                     android:textStyle="bold"
                     android:textSize="20dp"
+                    android:textColor="#000000"
                     android:text="먹을거리"/>
 
                 <!--먹을거리 이미지를 위한 레이아웃-->
@@ -211,8 +230,8 @@
 
                     <ImageView
                         android:id="@+id/content_more4_foodimg1"
-                        android:layout_width="165dp"
-                        android:layout_height="70dp"
+                        android:layout_width="150dp"
+                        android:layout_height="100dp"
                         android:layout_margin="10dp"
                         android:gravity="center_vertical"
                         android:scaleType="centerCrop"
@@ -220,8 +239,8 @@
 
                     <ImageView
                         android:id="@+id/content_more4_foodimg2"
-                        android:layout_width="165dp"
-                        android:layout_height="70dp"
+                        android:layout_width="150dp"
+                        android:layout_height="100dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:gravity="center_vertical"
@@ -236,10 +255,11 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="10dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
                     android:background="#E8E8E9"
                     android:gravity="center"
+                    android:textColor="#000000"
                     android:text="@string/moreInfo"/>
 
             </LinearLayout>
@@ -270,7 +290,8 @@
                     android:gravity="center"
                     android:textStyle="bold"
                     android:textSize="20dp"
-                    android:text="먹을거리"/>
+                    android:textColor="#000000"
+                    android:text="근처관광지"/>
 
                 <!--먹을거리 이미지를 위한 레이아웃-->
                 <LinearLayout
@@ -281,8 +302,8 @@
 
                     <ImageView
                         android:id="@+id/content_more5_surroundingsimg1"
-                        android:layout_width="165dp"
-                        android:layout_height="70dp"
+                        android:layout_width="150dp"
+                        android:layout_height="100dp"
                         android:layout_margin="10dp"
                         android:gravity="center_vertical"
                         android:scaleType="centerCrop"
@@ -290,8 +311,8 @@
 
                     <ImageView
                         android:id="@+id/content_more5_surroundingsimg2"
-                        android:layout_width="165dp"
-                        android:layout_height="70dp"
+                        android:layout_width="150dp"
+                        android:layout_height="100dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:gravity="center_vertical"
@@ -306,23 +327,24 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="10dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
                     android:background="#E8E8E9"
                     android:gravity="center"
+                    android:textColor="#000000"
                     android:text="@string/moreInfo"/>
 
             </LinearLayout>
             <!-- 끝의 여백-->
             <TextView
                 android:layout_width="fill_parent"
-                android:layout_height="50dp" />
+                android:layout_height="70dp" />
 
 
 
         </LinearLayout>
 
-    </LinearLayout>
+    </ScrollView>
 
-</ScrollView>
+</LinearLayout>
 
