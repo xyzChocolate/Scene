@@ -38,6 +38,16 @@ public class LocationManager implements ILocationIOhandler, Parcelable {
 		return 0;
 	}
 
+	public Location getLocation(int index) {
+
+		return locationContainer.get(index);
+	}
+
+	public int getLocaSize() {
+
+		return locationContainer.size();
+
+	}
 
 	@Override
 	public int read(InputStream inputStream) throws IOException {

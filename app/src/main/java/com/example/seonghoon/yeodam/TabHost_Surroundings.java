@@ -18,6 +18,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 /**
  * Created by Seonghoon on 2015-11-16.
@@ -27,6 +28,7 @@ public class TabHost_Surroundings extends FragmentActivity {
 
     private GoogleMap mMap;
     private SensorManager mSensorManager;
+    LocationManager locationManager;
 
 
     public boolean gps_enabled = false;
@@ -37,6 +39,9 @@ public class TabHost_Surroundings extends FragmentActivity {
         super.onCreate(savedInstanceState);
         //지도 띄우기
         setContentView(R.layout.tab_surroundings);
+
+        //locationManager = this.getIntent().getParcelableExtra("locationManager");
+
 
 
         //지도 객체 참조
@@ -153,14 +158,19 @@ public class TabHost_Surroundings extends FragmentActivity {
      */
 
     private void showSurroundings(Double latitude,Double longtitude){
-        /*
+
         MarkerOptions marker = new MarkerOptions();
         //marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker)).position(new LatLng(latitude, longtitude));
-        marker.position(new LatLng(latitude,longtitude));
+        marker.position(new LatLng(latitude, longtitude));
         marker.title("현재위치");
-        marker.draggable(true);
+        marker.draggable(false);
 
         mMap.addMarker(marker);
+        /*
+        for(int i=0 ;i<10; i++){
+            MarkerOptions surroundInfo = new MarkerOptions();
+            marker.position(locationManager.)
+        }
         */
     }
 

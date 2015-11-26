@@ -12,11 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -24,7 +27,19 @@ import java.util.ArrayList;
  */
 public class TabHost_ScheduleMgmt extends Activity{
 
+    private Integer[] mThumbIds = {
+            R.drawable.th1_1,R.drawable.th1_2,R.drawable.th1_3,R.drawable.th1_4,
+            R.drawable.th2_1,R.drawable.th2_2,R.drawable.th2_3,R.drawable.th2_4,
+            R.drawable.th3_1,R.drawable.th3_2,R.drawable.th3_3,R.drawable.th3_4,
+            R.drawable.th4_1,R.drawable.th4_2,R.drawable.th4_3,R.drawable.th4_4,
+            R.drawable.th5_1,R.drawable.th5_2,R.drawable.th5_3,R.drawable.th5_4,
+            R.drawable.th6_1,R.drawable.th6_2,R.drawable.th6_3,R.drawable.th6_4,
 
+
+
+    };
+
+    private TextView title;
     private LinearLayout dynamicLayout;
     public static ArrayList<View> schedules;
     public static LayoutInflater inflater;
@@ -59,7 +74,13 @@ public class TabHost_ScheduleMgmt extends Activity{
         SharedPreferences.Editor editor_scene= pref_scene.edit();
         int sceneNum = pref_scene.getInt("sceneNum", -1);
 
-        addObject(themeNum,sceneNum);
+
+        String[] theme_scene = readFile();
+        if(theme_scene!=null){
+            int numOfData = (theme_scene.length)/2;
+            addObject(numOfData,theme_scene);
+
+        }
 
 
 
@@ -277,13 +298,59 @@ public class TabHost_ScheduleMgmt extends Activity{
 
 
     }
-    private void addObject(int themeNum,int sceneNum){
-        View schedule = inflater.inflate(R.layout.tab_schedulemgmt_list,null);
-        //TextView title = (TextView)findViewById(R.id.list_title);
-        //title.setText("테마 "+(themeNum+1)+" - "+(sceneNum+1)+"장");
-        schedules.add(0,schedule);
+    private void addObject(int numOfData,String[] theme_scene){
+
+        int themeNum ;
+        int sceneNum ;
+
+        for(int i=0 ; i<numOfData; i++){
+            View schedule = inflater.inflate(R.layout.tab_schedulemgmt_view,null);
+            TextView title = (TextView)schedule.findViewById(R.id.title);
+
+            themeNum = Integer.parseInt(theme_scene[i*2]);
+            sceneNum = Integer.parseInt(theme_scene[i*2+1]);
+            title.setText("테마" + themeNum + " - " + (sceneNum + 1));
+
+            ImageView img1 = (ImageView)schedule.findViewById(R.id.scheduleview_1);
+            img1.setImageResource(mThumbIds[4 * ( themeNum- 1)]);
+            ImageView img2 = (ImageView)schedule.findViewById(R.id.scheduleview_2);
+            img2.setImageResource(mThumbIds[4*(themeNum-1)+1]);
+            ImageView img3 = (ImageView)schedule.findViewById(R.id.scheduleview_3);
+            img3.setImageResource(mThumbIds[4*(themeNum-1)+2]);
+            ImageView img4 = (ImageView)schedule.findViewById(R.id.scheduleview_4);
+            //img4.setImageResource(mThumbIds[4*(themeNum-1)+3]);
+
+
+            schedules.add(0, schedule);
+        }
+
 
 
     }
+    //파일을 읽는다
+    public static String[] readFile() {
 
+        byte[] b = new byte[1024];
+        try {
+
+            FileInputStream input = new FileInputStream("/data/data/com.example.seonghoon.yeodam/files/cache/cartsave1.txt");
+            StringBuilder builder = new StringBuilder();
+            int ch;
+            while ((ch = input.read()) != -1) {
+                builder.append((char) ch);
+            }
+            String result = builder.toString();
+
+            return parseString(result);
+
+        } catch (IOException ioe) {
+
+        }
+        return null;
+    }
+    public static String[] parseString(String inputString){
+
+        return inputString.split("[,\n]");
+
+    }
 }

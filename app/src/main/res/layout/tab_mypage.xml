@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="8">
@@ -8,7 +8,7 @@
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="#ffb2f5"/>
+        android:background="#ffffff"/>
 
     <GridView
         android:id="@+id/photogrid2"
@@ -24,6 +24,22 @@
         android:stretchMode="spacingWidth"
         android:verticalSpacing="5dp"
         android:layout_weight="7"
-        android:background="#B7F0B1"/>
+        android:background="#ffffff"/>
 
-</LinearLayout>
+    <GridView
+        android:id="@+id/photogrid_over"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:columnWidth="155dp"
+        android:gravity="center_horizontal|center"
+        android:horizontalSpacing="1dp"
+        android:numColumns="2"
+        android:stretchMode="spacingWidth"
+        android:verticalSpacing="5dp"
+        android:layout_weight="7"
+        android:background="#ffffff"/>
+
+</FrameLayout>

@@ -21,6 +21,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 /**
  * Created by Seonghoon on 2015-11-12.
  */
@@ -299,6 +304,8 @@ public class ThemeTab_Content_3 extends FragmentActivity implements View.OnClick
                     Log.d("ThemeTab_Content_3","일정추가 버튼 클릭");
                     editor.putInt("sceneNum", mPosition);
                     editor.commit();
+                    writeFile(mPosition);
+                    Toast.makeText(getContext(),"일정이 추가되었습니다.",Toast.LENGTH_SHORT).show();
                 }
             });
 
@@ -312,28 +319,28 @@ public class ThemeTab_Content_3 extends FragmentActivity implements View.OnClick
                     subtitle.setText(sceneManager.getOneScene(8).getSceneName());
                     hashTag.setText(sceneManager.getOneScene(8).getHashTag());
                     content.setText(sceneManager.getOneScene(8).getSceneStroy());
-                    drawable = ContextCompat.getDrawable( getContext(), R.drawable.p1);
+                    drawable = ContextCompat.getDrawable( getContext(), R.drawable.th3_1);
                     image.setImageDrawable(drawable);
                     break;
                 case 1:
                     subtitle.setText(sceneManager.getOneScene(9).getSceneName());
                     hashTag.setText(sceneManager.getOneScene(9).getHashTag());
                     content.setText(sceneManager.getOneScene(9).getSceneStroy());
-                    drawable = ContextCompat.getDrawable( getContext(), R.drawable.p2);
+                    drawable = ContextCompat.getDrawable( getContext(), R.drawable.th3_2);
                     image.setImageDrawable(drawable);
                     break;
                 case 2:
                     subtitle.setText(sceneManager.getOneScene(10).getSceneName());
                     hashTag.setText(sceneManager.getOneScene(10).getHashTag());
                     content.setText(sceneManager.getOneScene(10).getSceneStroy());
-                    drawable = ContextCompat.getDrawable( getContext(), R.drawable.p3);
+                    drawable = ContextCompat.getDrawable( getContext(), R.drawable.th3_3);
                     image.setImageDrawable(drawable);
                     break;
                 case 3:
                     subtitle.setText(sceneManager.getOneScene(11).getSceneName());
                     hashTag.setText(sceneManager.getOneScene(11).getHashTag());
                     content.setText(sceneManager.getOneScene(11).getSceneStroy());
-                    drawable = ContextCompat.getDrawable( getContext(), R.drawable.p4);
+                    drawable = ContextCompat.getDrawable( getContext(), R.drawable.th3_4);
                     image.setImageDrawable(drawable);
                     break;
 
@@ -367,6 +374,48 @@ public class ThemeTab_Content_3 extends FragmentActivity implements View.OnClick
         }
     }
 
+    //파일을 만들어서 쓴다.
+    public static void writeFile(int mPosition) {
+        String dirPath = "/data/data/com.example.seonghoon.yeodam/files/cache";
+        File file = new File(dirPath);
+
+        if(!file.exists()) {
+
+            file.mkdirs();
+            file.setReadable(true,false);
+        }
+
+        String saveString = "3,"+mPosition+"\n";
+        File savefile = new File(dirPath+"/cartsave1.txt");
+
+        try{
+            FileOutputStream fos = new FileOutputStream(savefile,true);
+            fos.write(saveString.getBytes());
+            fos.close();
+        }catch (IOException ioe){
+
+        }
+
+
+    }
+
+    //파일을 읽는다
+    public static void readFile() {
+
+        byte[] b = new byte[1024];
+        try{
+
+            FileInputStream input = new FileInputStream("/data/data/com.example.seonghoon.yeodam/files/cache/cartsave.txt");
+            StringBuilder builder = new StringBuilder();
+            int ch;
+            while((ch = input.read()) != -1){
+                builder.append((char)ch);
+            }
+
+        }catch (IOException ioe){
+
+        }
+    }
 
     //H/W 뒤로가기버튼 Handler
     @Override

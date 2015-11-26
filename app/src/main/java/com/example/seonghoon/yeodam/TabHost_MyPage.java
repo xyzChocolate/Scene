@@ -3,6 +3,7 @@ package com.example.seonghoon.yeodam;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.DisplayMetrics;
@@ -13,127 +14,236 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.FileInputStream;
+import java.io.IOException;
 
 /**
  * Created by Seonghoon on 2015-11-17.
  */
 public class TabHost_MyPage extends FragmentActivity{
 
-    private Intent intent;
+    ImageView img1;
+    ImageView img2;
+    ImageView img3;
+    ImageView img4;
+    ImageView img5;
+    ImageView img6;
+    TextView progress_1;
+    TextView progress_2;
+    TextView progress_3;
+    TextView progress_4;
+    TextView progress_5;
+    TextView progress_6;
 
-    //이미지들 담는 배열
-    private Integer[] mThumbIds = {
-            R.drawable.p1,
-            R.drawable.p2,
-            R.drawable.p3,
-            R.drawable.p4,
-            R.drawable.p5,
-            R.drawable.p6
-    };
+    int th1;
+    int th2;
+    int th3;
+    int th4;
+    int th5;
+    int th6;
 
-    //화면측정
-    DisplayMetrics mMetrics;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tab_mypage);
+        setContentView(R.layout.tab_mypage_test);
 
+        img1 = (ImageView)findViewById(R.id.theme_1_over);
+        Drawable alpha1 = img1.getBackground();
+        progress_1 = (TextView)findViewById(R.id.theme_1_progress);
 
-        GridView gridView = (GridView)findViewById(R.id.photogrid2);
-        gridView.setAdapter(new ImageAdapter(this));
-        gridView.setOnItemClickListener(gridviewOnItemClickListener);
+        img2 = (ImageView)findViewById(R.id.theme_2_over);
+        Drawable alpha2 = img1.getBackground();
+        progress_2 = (TextView)findViewById(R.id.theme_2_progress);
 
+        img3 = (ImageView)findViewById(R.id.theme_3_over);
+        Drawable alpha3 = img1.getBackground();
+        progress_3 = (TextView)findViewById(R.id.theme_3_progress);
 
+        img4 = (ImageView)findViewById(R.id.theme_4_over);
+        Drawable alpha4 = img1.getBackground();
+        progress_4 = (TextView)findViewById(R.id.theme_4_progress);
 
-        mMetrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(mMetrics);
-    }
+        img5 = (ImageView)findViewById(R.id.theme_5_over);
+        Drawable alpha5 = img1.getBackground();
+        progress_5 = (TextView)findViewById(R.id.theme_5_progress);
 
-    private GridView.OnItemClickListener gridviewOnItemClickListener
-            = new GridView.OnItemClickListener(){
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        img6 = (ImageView)findViewById(R.id.theme_6_over);
+        Drawable alpha6 = img1.getBackground();
+        progress_6 = (TextView)findViewById(R.id.theme_6_progress);
 
-            //Toast.makeText(ThemeTab_Covers.this,parent.getAdapter().getItem(position).toString(),
-            //Toast.LENGTH_LONG).show();
-            switch(position){
-                case 0:
-                    Toast.makeText(getApplicationContext(),"가을동화클릭클릭",Toast.LENGTH_SHORT).show();
+        th1=0;
+        th2=0;
+        th3=0;
+        th4=0;
+        th5=0;
+        th6=0;
 
-                    break;
-                case 1:
-                    Toast.makeText(getApplicationContext(),"어린가을동화클릭",Toast.LENGTH_SHORT).show();
+        String[] data = readFile();
 
-                    break;
-                case 2:
-                    Toast.makeText(getApplicationContext(),"베토벤바이러스",Toast.LENGTH_SHORT).show();
-                    break;
-
-                case 3:
-                    Toast.makeText(getApplicationContext(),"꺄♡ 갓설현 눌렀쪙",Toast.LENGTH_SHORT).show();
-
-                    break;
-                case 4:
-                    Toast.makeText(getApplicationContext(),"정욱이 클릭됬쪙",Toast.LENGTH_SHORT).show();
-
-                    break;
-                case 5:
-                    Toast.makeText(getApplicationContext(),"캬 간지남 두명",Toast.LENGTH_SHORT).show();
-
-                    break;
-
-
+        if(data != null){
+            for(int i=0; i<data.length/2;i++){
+                switch(data[i*2]){
+                    case "1":
+                        th1++;
+                        break;
+                    case "2":
+                        th2++;
+                        break;
+                    case "3":
+                        th3++;
+                        break;
+                    case "4":
+                        th4++;
+                        break;
+                    case "5":
+                        th5++;
+                        break;
+                    case "6":
+                        th6++;
+                        break;
+                }
             }
         }
-    };
 
 
-
-    public class ImageAdapter extends BaseAdapter {
-        private Context mContext;
-
-        public ImageAdapter(Context c){
-
-            mContext =c;
-
-        }
-        public int getCount(){
-            return mThumbIds.length;
-        }
-
-        public Object getItem(int position){
-            return mThumbIds[position];
-        }
-
-        public long getItemId(int position){
-            return position;
+        if(th1 == 0) {
+            alpha1.setAlpha(0);
+            progress_1.setText("0%");
+        } else if(th1 ==1){
+            alpha1.setAlpha(25);
+            progress_1.setText("25%");
+        } else if(th1 ==2){
+            alpha1.setAlpha(50);
+            progress_1.setText("50%");
+        } else if(th1 ==3){
+            alpha1.setAlpha(75);
+            progress_1.setText("75%");
+        } else{
+            alpha1.setAlpha(100);
+            progress_1.setText("100%");
         }
 
-        //create a new ImageView for each item referenced by the Adapter
-        public View getView(int position, View convertView, ViewGroup parent){
-
-            int rowWidth =  mMetrics.widthPixels/2 ;
-
-            ImageView imageView;
-            if(convertView == null){
-                imageView = new ImageView(mContext);
-                imageView.setLayoutParams(new GridView.LayoutParams(rowWidth,rowWidth));
-                imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                imageView.setPadding(1,1,1,1);
-
-            }else{
-                imageView = (ImageView) convertView;
-            }
-
-            imageView.setImageResource(mThumbIds[position]);
-            return imageView;
+        if(th2 == 0) {
+            alpha2.setAlpha(0);
+            progress_2.setText("0%");
+        } else if(th2 ==1){
+            alpha2.setAlpha(25);
+            progress_2.setText("25%");
+        } else if(th2 ==2){
+            alpha2.setAlpha(50);
+            progress_2.setText("50%");
+        } else if(th2 ==3){
+            alpha2.setAlpha(75);
+            progress_2.setText("75%");
+        } else{
+            alpha2.setAlpha(100);
+            progress_2.setText("100%");
         }
+
+
+        if(th3 == 0) {
+            alpha3.setAlpha(0);
+            progress_3.setText("0%");
+        } else if(th3 ==1){
+            alpha3.setAlpha(25);
+            progress_3.setText("25%");
+        } else if(th3 ==2){
+            alpha3.setAlpha(50);
+            progress_3.setText("50%");
+        } else if(th3 ==3){
+            alpha3.setAlpha(75);
+            progress_3.setText("75%");
+        } else{
+            alpha3.setAlpha(100);
+            progress_3.setText("100%");
+        }
+
+
+        if(th4 == 0) {
+            alpha4.setAlpha(0);
+            progress_4.setText("0%");
+        } else if(th4 ==1){
+            alpha4.setAlpha(25);
+            progress_4.setText("25%");
+        } else if(th4 ==2){
+            alpha4.setAlpha(50);
+            progress_4.setText("50%");
+        } else if(th4 ==3){
+            alpha4.setAlpha(75);
+            progress_4.setText("75%");
+        } else{
+            alpha4.setAlpha(100);
+            progress_4.setText("100%");
+        }
+
+        if(th5 == 0) {
+            alpha5.setAlpha(0);
+            progress_5.setText("0%");
+        } else if(th5 ==1){
+            alpha5.setAlpha(25);
+            progress_5.setText("25%");
+        } else if(th5 ==2){
+            alpha5.setAlpha(50);
+            progress_5.setText("50%");
+        } else if(th5 ==3){
+            alpha5.setAlpha(75);
+            progress_5.setText("75%");
+        } else{
+            alpha5.setAlpha(100);
+            progress_5.setText("100%");
+        }
+
+        if(th6 == 0) {
+            alpha6.setAlpha(0);
+            progress_6.setText("0%");
+        } else if(th6 ==1){
+            alpha6.setAlpha(25);
+            progress_6.setText("25%");
+        } else if(th6 ==2){
+            alpha6.setAlpha(50);
+            progress_6.setText("50%");
+        } else if(th6 ==3){
+            alpha6.setAlpha(75);
+            progress_6.setText("75%");
+        } else{
+            alpha6.setAlpha(100);
+            progress_6.setText("100%");
+        }
+
 
     }
 
+    //파일을 읽는다
+    public static String[] readFile() {
+
+        byte[] b = new byte[1024];
+        try{
+
+            FileInputStream input = new FileInputStream("/data/data/com.example.seonghoon.yeodam/files/cache/cartsave1.txt");
+            StringBuilder builder = new StringBuilder();
+            int ch;
+            while((ch = input.read()) != -1){
+                builder.append((char)ch);
+            }
+            return parseString(builder.toString());
+
+
+        }catch (IOException ioe){
+
+        }
+        return null;
+    }
+
+    public static String[] parseString(String inputString){
+
+        return inputString.split("[,\n]");
+
+    }
 
 
 }

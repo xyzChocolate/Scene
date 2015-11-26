@@ -57,8 +57,8 @@ public class SceneManager implements ISceneIOhandler,Parcelable {
 			sceneBuffer.setMissionReward(spiltBuf[6]);
 			sceneBuffer.setSceneMission(spiltBuf[7]);
 			sceneBuffer.setMissionMarker(spiltBuf[8]);
-			sceneBuffer.setSceneFin(Boolean.parseBoolean(spiltBuf[8]));
-			sceneBuffer.setSceneStroy(spiltBuf[9]);
+			sceneBuffer.setSceneFin(Boolean.parseBoolean(spiltBuf[9]));
+			sceneBuffer.setSceneStroy(spiltBuf[10]);
 
 			addScene(sceneBuffer);
 		}

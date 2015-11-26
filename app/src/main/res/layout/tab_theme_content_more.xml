@@ -91,7 +91,7 @@
                     android:layout_marginBottom="10dp"
                     android:gravity="center"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/p4"/>
+                    android:src="@drawable/titanic"/>
 
             </LinearLayout>
             <!-- 구분 바 레이아웃-->
@@ -235,7 +235,7 @@
                         android:layout_margin="10dp"
                         android:gravity="center_vertical"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/p4"/>
+                        android:src="@drawable/scene_1000101"/>
 
                     <ImageView
                         android:id="@+id/content_more4_foodimg2"
@@ -245,7 +245,7 @@
                         android:layout_marginBottom="10dp"
                         android:gravity="center_vertical"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/p4"/>
+                        android:src="@drawable/scene_1000101"/>
                 </LinearLayout>
 
                 <TextView
@@ -307,7 +307,7 @@
                         android:layout_margin="10dp"
                         android:gravity="center_vertical"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/p5"/>
+                        android:src="@drawable/scene_1000103"/>
 
                     <ImageView
                         android:id="@+id/content_more5_surroundingsimg2"
@@ -317,7 +317,7 @@
                         android:layout_marginBottom="10dp"
                         android:gravity="center_vertical"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/p5"/>
+                        android:src="@drawable/scene_1000104"/>
                 </LinearLayout>
 
                 <TextView

@@ -19,8 +19,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.text.ParseException;
 
 @SuppressWarnings("deprecation")
@@ -50,10 +54,15 @@ public class MainActivity extends TabActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //
-        if (Build.VERSION.SDK_INT >= 21) {
-            getWindow().setStatusBarColor(Color.parseColor("#00CCCB"));
+        File savefile = new File("/data/data/com.example.seonghoon.yeodam/testfile/cartsave.txt");
+        try {
+            PrintWriter writer = new PrintWriter(savefile);
+            writer.print("");
+            writer.close();
+        } catch(FileNotFoundException fnf) {
+
         }
+
 
 
         //각 함수의 매니저를 호출
@@ -134,6 +143,7 @@ public class MainActivity extends TabActivity {
         Intent intent3 = new Intent();
         intent3.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent3.setClass(this, TabHost_Surroundings.class);
+        intent3.putExtra("locationManager",locationManager);
         tab3_spec.setIndicator(new TabView(this,Tab_Unclicked[2],R.drawable.tab3_bg));
         tab3_spec.setContent(intent3);
         mTab.addTab(tab3_spec);

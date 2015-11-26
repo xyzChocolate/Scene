@@ -27,12 +27,13 @@ public class ThemeTab_Covers extends Activity{
 
     //이미지들 담는 배열
     private Integer[] mThumbIds = {
-            R.drawable.p1,
-            R.drawable.p2,
-            R.drawable.p3,
-            R.drawable.p4,
-            R.drawable.p5,
-            R.drawable.p6
+            R.drawable.th1,
+            R.drawable.th2,
+            R.drawable.th3,
+            R.drawable.th4,
+            R.drawable.th5,
+            R.drawable.th6,
+
     };
 
     //화면측정
