@@ -9,14 +9,18 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="20dp"
-        android:background="#00CCCB"/>
+        android:gravity="center"
+        android:background="#00CCCB"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:text="내 여행 진행 현황"/>
 
     <ImageView
         android:id="@+id/theme_1"
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:scaleType="fitXY"
         android:background="@drawable/th1_1"/>
 
@@ -26,7 +30,7 @@
         android:layout_height="140dp"
         android:layout_marginLeft="180dp"
         android:scaleType="fitXY"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/th2_1"
         />
     <ImageView
@@ -34,7 +38,7 @@
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="190dp"
         android:scaleType="fitXY"
         android:background="@drawable/th3_1"/>
 
@@ -43,7 +47,7 @@
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginLeft="180dp"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="190dp"
         android:scaleType="fitXY"
         android:background="@drawable/th4_1"/>
     <ImageView
@@ -51,7 +55,7 @@
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="340dp"
         android:scaleType="fitXY"
         android:background="@drawable/th5_1"/>
 
@@ -60,7 +64,7 @@
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginLeft="180dp"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="340dp"
         android:scaleType="fitXY"
         android:background="@drawable/th6_1"/>
 
@@ -69,7 +73,7 @@
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:scaleType="fitXY"
         android:background="#11000000"/>
     <ImageView
@@ -78,7 +82,7 @@
         android:layout_height="140dp"
         android:layout_marginLeft="180dp"
         android:scaleType="fitXY"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:background="#33000000"
         />
     <ImageView
@@ -86,7 +90,7 @@
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="190dp"
         android:scaleType="fitXY"
         android:background="#77000000"/>
 
@@ -95,7 +99,7 @@
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginLeft="180dp"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="190dp"
         android:scaleType="fitXY"
         android:background="#aa000000"/>
     <ImageView
@@ -103,7 +107,7 @@
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="340dp"
         android:scaleType="fitXY"
         android:background="#cc000000"/>
 
@@ -112,7 +116,7 @@
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginLeft="180dp"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="340dp"
         android:scaleType="fitXY"
         android:background="#ff000000"/>
 
@@ -121,7 +125,7 @@
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="80dp"
         android:gravity="center"
         android:textSize="35dp"
         android:textStyle="bold"
@@ -133,7 +137,7 @@
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:layout_marginLeft="180dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="80dp"
         android:gravity="center"
         android:textSize="35dp"
         android:textStyle="bold"
@@ -145,7 +149,7 @@
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="210dp"
+        android:layout_marginTop="230dp"
         android:gravity="center"
         android:textSize="35dp"
         android:textStyle="bold"
@@ -157,7 +161,7 @@
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:layout_marginLeft="180dp"
-        android:layout_marginTop="210dp"
+        android:layout_marginTop="230dp"
         android:gravity="center"
         android:textSize="35dp"
         android:textStyle="bold"
@@ -169,7 +173,7 @@
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="380dp"
         android:gravity="center"
         android:textSize="35dp"
         android:textStyle="bold"
@@ -181,7 +185,7 @@
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:layout_marginLeft="180dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="380dp"
         android:gravity="center"
         android:textSize="35dp"
         android:textStyle="bold"

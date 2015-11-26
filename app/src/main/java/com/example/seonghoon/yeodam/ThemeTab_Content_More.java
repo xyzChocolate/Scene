@@ -36,10 +36,11 @@ public class ThemeTab_Content_More extends Activity {
         setTheme(R.style.Theme_Transparent);
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        /*
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,
                 WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
-
+        */
         setContentView(R.layout.tab_theme_content_more);
 
 

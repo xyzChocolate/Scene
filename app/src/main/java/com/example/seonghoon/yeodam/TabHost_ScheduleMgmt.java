@@ -27,6 +27,7 @@ import java.util.ArrayList;
  */
 public class TabHost_ScheduleMgmt extends Activity{
 
+    /*
     private Integer[] mThumbIds = {
             R.drawable.th1_1,R.drawable.th1_2,R.drawable.th1_3,R.drawable.th1_4,
             R.drawable.th2_1,R.drawable.th2_2,R.drawable.th2_3,R.drawable.th2_4,
@@ -38,7 +39,7 @@ public class TabHost_ScheduleMgmt extends Activity{
 
 
     };
-
+    */
     private TextView title;
     private LinearLayout dynamicLayout;
     public static ArrayList<View> schedules;
@@ -311,13 +312,13 @@ public class TabHost_ScheduleMgmt extends Activity{
             sceneNum = Integer.parseInt(theme_scene[i*2+1]);
             title.setText("테마" + themeNum + " - " + (sceneNum + 1));
 
-            ImageView img1 = (ImageView)schedule.findViewById(R.id.scheduleview_1);
-            img1.setImageResource(mThumbIds[4 * ( themeNum- 1)]);
-            ImageView img2 = (ImageView)schedule.findViewById(R.id.scheduleview_2);
-            img2.setImageResource(mThumbIds[4*(themeNum-1)+1]);
-            ImageView img3 = (ImageView)schedule.findViewById(R.id.scheduleview_3);
-            img3.setImageResource(mThumbIds[4*(themeNum-1)+2]);
-            ImageView img4 = (ImageView)schedule.findViewById(R.id.scheduleview_4);
+            //ImageView img1 = (ImageView)schedule.findViewById(R.id.scheduleview_1);
+            //img1.setImageResource(mThumbIds[4 * ( themeNum- 1)]);
+            //ImageView img2 = (ImageView)schedule.findViewById(R.id.scheduleview_2);
+            //img2.setImageResource(mThumbIds[4*(themeNum-1)+1]);
+            //ImageView img3 = (ImageView)schedule.findViewById(R.id.scheduleview_3);
+            //img3.setImageResource(mThumbIds[4*(themeNum-1)+2]);
+            //ImageView img4 = (ImageView)schedule.findViewById(R.id.scheduleview_4);
             //img4.setImageResource(mThumbIds[4*(themeNum-1)+3]);
 
 

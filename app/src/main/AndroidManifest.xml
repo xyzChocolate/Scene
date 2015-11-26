@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:largeHeap="true"
     package="com.example.seonghoon.yeodam" >
 
     <!-- 내 프로젝트에 대한 보안 수준 설정.  -->
